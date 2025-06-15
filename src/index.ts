@@ -79,7 +79,8 @@ function WalletComponent(args: ComponentArgs) {
     const walletHooks: WalletHooks = {
       walletSubscribe: (fn) =>
         args.eventTarget.addEventListener(WALLET_CHANGE, (event) => {
-          const currentAccount = (<CustomEvent>event).detail.wallet;
+          const currentAccount = (event as CustomEvent)
+            .detail as WalletAccount | null;
           return fn(currentAccount);
         }),
       currentAccount: () => CURRENT_ACCOUNT,
@@ -106,7 +107,7 @@ function WalletComponent(args: ComponentArgs) {
     CURRENT_ACCOUNT = currentAccount;
     args.eventTarget.dispatchEvent(
       new CustomEvent(WALLET_CHANGE, {
-        detail: { wallet: currentAccount },
+        detail: currentAccount,
       })
     );
   }, [currentAccount]);

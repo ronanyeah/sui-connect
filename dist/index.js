@@ -73,7 +73,8 @@ function WalletComponent(args) {
         var walletHooks = {
             walletSubscribe: function (fn) {
                 return args.eventTarget.addEventListener(WALLET_CHANGE, function (event) {
-                    var currentAccount = event.detail.wallet;
+                    var currentAccount = event
+                        .detail;
                     return fn(currentAccount);
                 });
             },
@@ -97,7 +98,7 @@ function WalletComponent(args) {
     (0, react_1.useEffect)(function () {
         CURRENT_ACCOUNT = currentAccount;
         args.eventTarget.dispatchEvent(new CustomEvent(WALLET_CHANGE, {
-            detail: { wallet: currentAccount },
+            detail: currentAccount,
         }));
     }, [currentAccount]);
     return react_1.default.createElement(dapp_kit_1.ConnectModal, {
