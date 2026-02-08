@@ -44,7 +44,7 @@ export function init(chain: SuiChain): Promise<WalletHooks> {
         onMount: resolve,
         eventTarget,
         chain,
-      })
+      }),
     );
   });
 }
@@ -64,7 +64,7 @@ function App(args: ComponentArgs) {
         children: React.createElement(WalletComponent, args),
         autoConnect: true,
       }),
-    })
+    }),
   );
 }
 
@@ -91,8 +91,8 @@ function WalletComponent(args: ComponentArgs) {
             {
               onSuccess: resolve,
               onError: reject,
-            }
-          )
+            },
+          ),
         ),
       setModalOpen: setOpen,
       disconnectWallet: disconnect,
@@ -108,7 +108,7 @@ function WalletComponent(args: ComponentArgs) {
     args.eventTarget.dispatchEvent(
       new CustomEvent(WALLET_CHANGE, {
         detail: currentAccount,
-      })
+      }),
     );
   }, [currentAccount]);
 

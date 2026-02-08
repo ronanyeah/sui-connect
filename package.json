@@ -7,17 +7,18 @@
     "build": "tsc --outDir dist --declaration true"
   },
   "dependencies": {
-    "@mysten/dapp-kit": "^0.17.4",
-    "@mysten/wallet-standard": "^0.16.1",
+    "@mysten/dapp-kit": "^1.0.1",
+    "@mysten/wallet-standard": "^0.20.0",
     "@tanstack/react-query": "^5.72.2",
     "@types/react-dom": "^19.1.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@mysten/sui": "2.3.1",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@mysten/sui": "^1.26.1"
+    "@mysten/sui": "^2.3.1"
   }
 }

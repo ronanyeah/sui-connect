@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["es6", "DOM"],
+    "lib": ["esnext", "DOM"],
     "skipLibCheck": true,
     "strict": true,
-    "esModuleInterop": true
+    "module": "esnext",
+    "moduleResolution": "bundler"
   },
   "include": ["src/**/*.ts"]
 }
